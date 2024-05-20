@@ -37,10 +37,6 @@ type CodeGenerationRequest struct {
 	Algorithm2Desc string `json:"algorithm2Desc"`
 }
 
-type FilenameAnswer struct {
-	Filename string `json:"filename"`
-}
-
 var defaultBridgingHeaderContent = `// Use this file to import your target's public headers that you would like to expose to Swift.`
 
 var (
@@ -124,22 +120,7 @@ func runIteration(outputDir string) error {
 		return err
 	}
 
-	fmt.Println("class: ", class)
-
-	// classFilenameJson, err := llmHandler.Prompt(prompts.ClassFilename)
-	// if err != nil {
-	// 	return err
-	// }
-	// f := FilenameAnswer{}
-	// err = json.Unmarshal([]byte(classFilenameJson), &f)
-	// if err != nil {
-	// 	return err
-	// }
-	// classFilename := f.Filename
-	//
 	classFilename, _, err := codegemma.Prompt(prompts.ClassFilename + "\n" + prompts.Class)
-
-	fmt.Println("classFilename: ", classFilename)
 
 	err = writeToFile(classFilename, outputDir, class)
 	if err != nil {
@@ -150,7 +131,6 @@ func runIteration(outputDir string) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("module: ", module)
 
 	if len(moduleFilename) < 3 {
 		moduleFilename, _, err = codegemma.Prompt(prompts.ModuleFilename)
@@ -158,25 +138,8 @@ func runIteration(outputDir string) error {
 			return err
 		}
 	}
-	fmt.Println("moduleFilename: ", moduleFilename)
-	// moduleFilename := classFilename + ".m"
 
 	err = writeToFile(moduleFilename, outputDir, module)
-
-	// moduleFilenameJson, err := llmHandler.Prompt(prompts.ModuleFilename)
-	// if err != nil {
-	// 	return err
-	// }
-	// err = json.Unmarshal([]byte(moduleFilenameJson), &f)
-	// if err != nil {
-	// 	return err
-	// }
-	// moduleFilename := f.Filename
-
-	// err = writeToFile(moduleFilename, outputDir, module)
-	// if err != nil {
-	// 	return err
-	// }
 
 	return nil
 }
