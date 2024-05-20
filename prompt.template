@@ -1,0 +1,24 @@
+You are a hi-skilled engineer writing code for a large and scalable iOS React Native application. The application is a phone cleaner with many other features.
+As a part of this project imagine functionality and create a class that full implements {{.Algorithm1Name}} ({{.Algorithm1Desc}}) and {{.Algorithm2Name}} ({{.Algorithm2Desc}}) with all the details.
+It must be rather large and contain a complex logic.
+
+Create the main class file with a .swift extension and all necessary additional files needed. Link the files with imports and references as needed.
+The class should be named appropriately and the files should be named descriptively.
+
+After that create an implementation file or files (.m) that will bridge the Swift class to React Native.
+
+Provide your response as a valid JSON string, with no additional information or commentary. Escape all special characters in the JSON string.
+
+The JSON should be:
+
+```json
+{ "generatedFiles": [{ "name": "filename.extension", "contents": "escaped contents" }, { "name": "filename.extension", "contents": "escaped contents" }, ... ] }
+```
+
+Here's is the existing Bridging Header file of the project ({{.BridgingHeaderFilename}}). Ignore it contents while generating classes but add the necessary imports and references to it to make the Swift class available to the React Native code.
+
+```
+{{.BridgingHeaderContents}}
+```
+
+Include the Bridging Header file in the response as a separate file.

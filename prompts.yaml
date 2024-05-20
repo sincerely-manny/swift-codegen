@@ -1,0 +1,29 @@
+class: |
+  You are a hi-skilled engineer writing code for a large and scalable iOS React Native application. The application is a phone cleaner with many other features.
+  As a part of this project imagine functionality and generate a code of a single Swift class that
+  - serves the purpose of an app
+  - fully implements {{.Algorithm1Name}} ({{.Algorithm1Desc}}) and {{.Algorithm2Name}} ({{.Algorithm2Desc}}) with all the details.
+  - large and contain a complex logic.
+
+  The class should be named appropriately and the files should be named descriptively.
+
+  Provide the answer as a plain text (code only without any additional text)
+
+  Class must be rather large and contain a complex logic. Code must be random but meaninful.
+  The class should be substantial in size and include complex logic that demonstrates meaningful and non-trivial interactions between the two algorithms.
+
+  Guidelines:
+  Class Size: class should contain at least 50 lines of code.
+  Class Complexity: The class should have intricate logic and structure. It should not be straightforward and should present some challenges in understanding its implementation.
+  API Design: Imagine the class as part of a real API. Avoid using placeholders; instead, design the class as if it is going to be integrated into a real-world application.
+  Class Naming: Name the class appropriately based on its functionality. Do not use the word "complex" in the class name.
+
+classFilename: |
+  Here's a swift class for iOS cleaner app. How would you name it? Give an answer as a single string without any additional text or characters, in a following format: `Filename.swift`
+
+module: |
+  Here's a swift file for iOS React Native app. Create an implementation file (.m) for this file that will bridge it to React Native.
+  Provide the answer as a plain text (code only without any additional text). Filename should be provided in the comment on the first line.
+
+moduleFilename: |
+  How would you name the created file? Give an answer as a single string without any additional text or characters, in a following format: `Filename.m`

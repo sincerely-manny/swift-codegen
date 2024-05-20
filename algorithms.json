@@ -1,0 +1,382 @@
+[
+  {
+    "name": "Quick Sort",
+    "description": "A divide-and-conquer sorting algorithm that selects a pivot and partitions the array around the pivot."
+  },
+  {
+    "name": "Merge Sort",
+    "description": "A stable, divide-and-conquer sorting algorithm that divides the array into halves, recursively sorts them, and merges them."
+  },
+  {
+    "name": "Heap Sort",
+    "description": "A comparison-based sorting algorithm that uses a binary heap data structure to sort elements."
+  },
+  {
+    "name": "Bubble Sort",
+    "description": "A simple, comparison-based sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order."
+  },
+  {
+    "name": "Insertion Sort",
+    "description": "A simple sorting algorithm that builds the final sorted array one item at a time by repeatedly picking the next item and inserting it into its correct position."
+  },
+  {
+    "name": "Selection Sort",
+    "description": "A simple, comparison-based sorting algorithm that divides the input into a sorted and an unsorted region and repeatedly selects the smallest element from the unsorted region and moves it to the end of the sorted region."
+  },
+  {
+    "name": "Radix Sort",
+    "description": "A non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value."
+  },
+  {
+    "name": "Shell Sort",
+    "description": "An in-place comparison-based sorting algorithm that generalizes insertion sort to allow the exchange of items that are far apart."
+  },
+  {
+    "name": "Counting Sort",
+    "description": "A non-comparison-based sorting algorithm that counts the number of objects having distinct key values and uses arithmetic to determine the positions of each key."
+  },
+  {
+    "name": "Bucket Sort",
+    "description": "A distribution sort that works by distributing elements into a number of buckets, each bucket is then sorted individually, either using a different sorting algorithm, or by recursively applying the bucket sorting algorithm."
+  },
+  {
+    "name": "Binary Search",
+    "description": "An efficient algorithm for finding an item from a sorted list of items by repeatedly dividing the search interval in half."
+  },
+  {
+    "name": "Linear Search",
+    "description": "A simple search algorithm that checks every element in the list sequentially until the desired element is found or the list ends."
+  },
+  {
+    "name": "Jump Search",
+    "description": "An algorithm for searching a sorted array by jumping ahead by fixed steps and then performing a linear search within the range."
+  },
+  {
+    "name": "Interpolation Search",
+    "description": "An improved variant of binary search for instances where the values in a sorted array are uniformly distributed."
+  },
+  {
+    "name": "Exponential Search",
+    "description": "An algorithm that combines binary search and the idea of a jump search for finding a range in a sorted array, followed by binary search within that range."
+  },
+  {
+    "name": "Depth-First Search (DFS)",
+    "description": "An algorithm for traversing or searching tree or graph data structures by exploring as far as possible along each branch before backtracking."
+  },
+  {
+    "name": "Breadth-First Search (BFS)",
+    "description": "An algorithm for traversing or searching tree or graph data structures by exploring all of the neighbor nodes at the present depth prior to moving on to nodes at the next depth level."
+  },
+  {
+    "name": "Dijkstra's Algorithm",
+    "description": "An algorithm for finding the shortest paths between nodes in a graph, which may represent, for example, road networks."
+  },
+  {
+    "name": "Bellman-Ford Algorithm",
+    "description": "An algorithm that computes shortest paths from a single source vertex to all of the other vertices in a weighted digraph."
+  },
+  {
+    "name": "Floyd-Warshall Algorithm",
+    "description": "An algorithm for finding shortest paths in a weighted graph with positive or negative edge weights (but with no negative cycles)."
+  },
+  {
+    "name": "Kruskal's Algorithm",
+    "description": "An algorithm for finding the minimum spanning tree of a connected, undirected graph by adding increasing cost arcs, avoiding any cycles."
+  },
+  {
+    "name": "Prim's Algorithm",
+    "description": "An algorithm for finding the minimum spanning tree of a connected, undirected graph that grows the spanning tree from an initial vertex by adding the cheapest possible connection from the tree to another vertex."
+  },
+  {
+    "name": "A* Search Algorithm",
+    "description": "An algorithm that is widely used in pathfinding and graph traversal, which uses a best-first search and finds the lowest cost path between the start and goal nodes."
+  },
+  {
+    "name": "Topological Sorting",
+    "description": "A linear ordering of vertices in a directed graph where for every directed edge uv, vertex u comes before v in the ordering."
+  },
+  {
+    "name": "Tarjan's Algorithm",
+    "description": "An algorithm for finding the strongly connected components of a directed graph."
+  },
+  {
+    "name": "Kosaraju's Algorithm",
+    "description": "An algorithm to find all strongly connected components in a directed graph."
+  },
+  {
+    "name": "Johnson's Algorithm",
+    "description": "An algorithm for finding shortest paths between all pairs of vertices in a sparse, weighted, directed graph."
+  },
+  {
+    "name": "Edmonds-Karp Algorithm",
+    "description": "An implementation of the Ford-Fulkerson method for computing the maximum flow in a flow network."
+  },
+  {
+    "name": "Ford-Fulkerson Algorithm",
+    "description": "An algorithm that computes the maximum flow in a flow network by searching for augmenting paths in the residual graph."
+  },
+  {
+    "name": "Kahn's Algorithm",
+    "description": "An algorithm for topological sorting of a directed acyclic graph by repeatedly removing nodes with no incoming edges."
+  },
+  {
+    "name": "Fibonacci Sequence",
+    "description": "A sequence where each number is the sum of the two preceding ones, often implemented using dynamic programming."
+  },
+  {
+    "name": "Longest Common Subsequence (LCS)",
+    "description": "An algorithm to find the longest subsequence common to all sequences in a set of sequences."
+  },
+  {
+    "name": "Longest Increasing Subsequence (LIS)",
+    "description": "An algorithm to find the longest increasing subsequence in a given sequence of numbers."
+  },
+  {
+    "name": "0/1 Knapsack Problem",
+    "description": "A problem in combinatorial optimization: Given a set of items, each with a weight and a value, determine the number of each item to include in a collection so that the total weight is less than or equal to a given limit and the total value is as large as possible."
+  },
+  {
+    "name": "Coin Change Problem",
+    "description": "An algorithm to find the minimum number of coins needed to make change for a given amount of money."
+  },
+  {
+    "name": "Matrix Chain Multiplication",
+    "description": "An optimization problem that involves finding the most efficient way to multiply a given sequence of matrices."
+  },
+  {
+    "name": "Edit Distance (Levenshtein Distance)",
+    "description": "An algorithm to compute the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one word into another."
+  },
+  {
+    "name": "Maximum Subarray Sum (Kadane's Algorithm)",
+    "description": "An algorithm to find the contiguous subarray within a one-dimensional numeric array which has the largest sum."
+  },
+  {
+    "name": "Catalan Numbers",
+    "description": "A sequence of natural numbers that occur in various counting problems, often implemented using dynamic programming."
+  },
+  {
+    "name": "Bell Numbers",
+    "description": "A sequence of numbers that describe the number of ways to partition a set."
+  },
+  {
+    "name": "Knuth-Morris-Pratt (KMP) Algorithm",
+    "description": "An efficient string matching algorithm that searches for occurrences of a 'word' within a main 'text string' by employing the observation that when a mismatch occurs, the word itself embodies sufficient information to determine where the next match could begin."
+  },
+  {
+    "name": "Rabin-Karp Algorithm",
+    "description": "A string matching algorithm that uses hashing to find an exact match of a pattern string in a text."
+  },
+  {
+    "name": "Boyer-Moore Algorithm",
+    "description": "An efficient string searching algorithm that skips sections of the text to achieve better performance than a straightforward search."
+  },
+  {
+    "name": "Aho-Corasick Algorithm",
+    "description": "An algorithm for matching a set of 'dictionary' strings within some input text."
+  },
+  {
+    "name": "Longest Palindromic Substring",
+    "description": "An algorithm to find the longest substring of a given string which is also a palindrome."
+  },
+  {
+    "name": "Z Algorithm",
+    "description": "An algorithm for pattern matching that operates in linear time."
+  },
+  {
+    "name": "Suffix Tree Construction",
+    "description": "An algorithm to build a compressed trie of all the suffixes of a given text."
+  },
+  {
+    "name": "Suffix Array Construction",
+    "description": "An array of starting positions of suffixes of a string arranged in lexicographical order."
+  },
+  {
+    "name": "Burrows-Wheeler Transform",
+    "description": "A data transformation algorithm that reorganizes a string into runs of similar characters, useful for data compression."
+  },
+  {
+    "name": "Fractional Knapsack Problem",
+    "description": "A problem in which items can be broken into smaller pieces, and the goal is to maximize the total value while keeping within a weight limit."
+  },
+  {
+    "name": "Activity Selection Problem",
+    "description": "An algorithm to select the maximum number of activities that don't overlap, given a set of activities each with a start and end time."
+  },
+  {
+    "name": "Huffman Coding",
+    "description": "An algorithm used for lossless data compression based on the frequency of characters."
+  },
+  {
+    "name": "Job Sequencing with Deadlines",
+    "description": "An algorithm to schedule jobs to maximize profit given deadlines and profits associated with jobs."
+  },
+  {
+    "name": "N-Queens Problem",
+    "description": "A backtracking algorithm to place N queens on an N×N chessboard so that no two queens threaten each other."
+  },
+  {
+    "name": "Sudoku Solver",
+    "description": "A backtracking algorithm to solve Sudoku puzzles."
+  },
+  {
+    "name": "Hamiltonian Cycle",
+    "description": "A backtracking algorithm to determine whether a Hamiltonian cycle exists in a given graph."
+  },
+  {
+    "name": "Subset Sum Problem",
+    "description": "An algorithm to determine if there is a subset of a given set with a sum equal to a given target."
+  },
+  {
+    "name": "Graph Coloring",
+    "description": "A backtracking algorithm to assign colors to the vertices of a graph so that no two adjacent vertices share the same color."
+  },
+  {
+    "name": "Strassen's Matrix Multiplication",
+    "description": "An algorithm for matrix multiplication that is faster than the standard cubic time algorithm."
+  },
+  {
+    "name": "Closest Pair of Points",
+    "description": "An algorithm to find the two closest points in a plane."
+  },
+  {
+    "name": "Graham's Scan",
+    "description": "An algorithm for finding the convex hull of a finite set of points in the plane."
+  },
+  {
+    "name": "Jarvis's March",
+    "description": "An algorithm to find the convex hull of a set of points in the plane."
+  },
+  {
+    "name": "Bentley-Ottmann Algorithm",
+    "description": "An algorithm for reporting all intersecting pairs of line segments in the plane."
+  },
+  {
+    "name": "Sweep Line Algorithm",
+    "description": "A geometric algorithm that processes a set of events in a sorted order."
+  },
+  {
+    "name": "Kirkpatrick-Seidel Algorithm",
+    "description": "An algorithm to find the convex hull in two dimensions in O(n log h) time."
+  },
+  {
+    "name": "Delaunay Triangulation",
+    "description": "An algorithm to triangulate a set of points such that no point is inside the circumcircle of any triangle."
+  },
+  {
+    "name": "Voronoi Diagram",
+    "description": "A partitioning of a plane into regions based on distance to a specified set of points."
+  },
+  {
+    "name": "Linear Regression",
+    "description": "A statistical method for modeling the relationship between a dependent variable and one or more independent variables."
+  },
+  {
+    "name": "Logistic Regression",
+    "description": "A statistical method for analyzing a dataset in which there are one or more independent variables that determine an outcome."
+  },
+  {
+    "name": "Decision Tree",
+    "description": "A decision support tool that uses a tree-like model of decisions and their possible consequences."
+  },
+  {
+    "name": "Random Forest",
+    "description": "An ensemble learning method for classification, regression, and other tasks that operate by constructing multiple decision trees."
+  },
+  {
+    "name": "Support Vector Machine (SVM)",
+    "description": "A supervised learning model used for classification and regression analysis."
+  },
+  {
+    "name": "K-Means Clustering",
+    "description": "A partitioning method that divides a dataset into K clusters in which each data point belongs to the cluster with the nearest mean."
+  },
+  {
+    "name": "K-Nearest Neighbors (KNN)",
+    "description": "A non-parametric method used for classification and regression by comparing distances between data points."
+  },
+  {
+    "name": "Naive Bayes",
+    "description": "A family of simple probabilistic classifiers based on Bayes' theorem with strong independence assumptions."
+  },
+  {
+    "name": "Principal Component Analysis (PCA)",
+    "description": "A technique used to emphasize variation and bring out strong patterns in a dataset by reducing its dimensions."
+  },
+  {
+    "name": "Gradient Descent",
+    "description": "An optimization algorithm for finding the minimum of a function by iteratively moving in the direction of steepest descent."
+  },
+  {
+    "name": "AdaBoost",
+    "description": "An ensemble learning method that combines multiple weak classifiers to create a strong classifier."
+  },
+  {
+    "name": "Gradient Boosting Machines (GBM)",
+    "description": "A machine learning technique for regression and classification problems, which produces a prediction model in the form of an ensemble of weak prediction models."
+  },
+  {
+    "name": "XGBoost",
+    "description": "An optimized distributed gradient boosting library designed to be highly efficient, flexible, and portable."
+  },
+  {
+    "name": "Feedforward Neural Networks",
+    "description": "A type of artificial neural network where connections between the nodes do not form a cycle."
+  },
+  {
+    "name": "Convolutional Neural Networks (CNN)",
+    "description": "A class of deep neural networks, most commonly applied to analyzing visual imagery."
+  },
+  {
+    "name": "Recurrent Neural Networks (RNN)",
+    "description": "A class of neural networks where connections between the nodes form a directed graph along a temporal sequence."
+  },
+  {
+    "name": "Long Short-Term Memory (LSTM)",
+    "description": "A special kind of RNN, capable of learning long-term dependencies."
+  },
+  {
+    "name": "Generative Adversarial Networks (GAN)",
+    "description": "A class of machine learning frameworks designed by two neural networks contesting with each other in a game."
+  },
+  {
+    "name": "RSA Algorithm",
+    "description": "A public-key cryptosystem that is widely used for secure data transmission."
+  },
+  {
+    "name": "Diffie-Hellman Key Exchange",
+    "description": "A method of securely exchanging cryptographic keys over a public channel."
+  },
+  {
+    "name": "Advanced Encryption Standard (AES)",
+    "description": "A symmetric encryption algorithm widely used across the globe."
+  },
+  {
+    "name": "Triple DES (3DES)",
+    "description": "An encryption algorithm that applies the DES cipher algorithm three times to each data block."
+  },
+  {
+    "name": "Secure Hash Algorithm (SHA-256)",
+    "description": "A cryptographic hash function that produces a 256-bit hash value, widely used for security applications."
+  },
+  {
+    "name": "Elliptic Curve Cryptography (ECC)",
+    "description": "An approach to public-key cryptography based on the algebraic structure of elliptic curves over finite fields."
+  },
+  {
+    "name": "MD5",
+    "description": "A widely used cryptographic hash function that produces a 128-bit hash value, but considered insecure for further use."
+  },
+  {
+    "name": "Digital Signature Algorithm (DSA)",
+    "description": "A Federal Information Processing Standard for digital signatures."
+  },
+  {
+    "name": "Monte Carlo Algorithm",
+    "description": "A broad class of computational algorithms that rely on repeated random sampling to obtain numerical results."
+  },
+  {
+    "name": "Simulated Annealing",
+    "description": "A probabilistic technique for approximating the global optimum of a given function."
+  }
+]
