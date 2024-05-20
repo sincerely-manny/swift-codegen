@@ -198,7 +198,6 @@ func getPrompts() (Prompts, error) {
 	for i := 0; i < values.NumField(); i++ {
 		field := types.Field(i).Name
 		value := values.Field(i)
-		fmt.Println(field, value)
 		tmpl, err := template.New(field).Parse(value.String())
 		if err != nil {
 			return prompts, err
