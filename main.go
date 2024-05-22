@@ -24,10 +24,8 @@ type Algorithm struct {
 }
 
 type Prompts struct {
-	Class          string `yaml:"class"`
-	ClassFilename  string `yaml:"classFilename"`
-	Module         string `yaml:"module"`
-	ModuleFilename string `yaml:"moduleFilename"`
+	Class  string `yaml:"class"`
+	Module string `yaml:"module"`
 }
 
 type CodeGenerationRequest struct {

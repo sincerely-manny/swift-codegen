@@ -21,10 +21,6 @@ class: |
   ```
   Provide the answer as a plain text (code only without any additional text)
 
-classFilename: |
-  Also create an Objective-C header to expose swift methods (Filename.h) for React Native and a bridging file (Filename.m) for the swift class.
-  Here's a swift class for iOS cleaner app. How would you name it? Give an answer as a single string without any additional text or characters, in a following format: `Filename.swift`
-
 module: |
   Generate an Objective-C .m file to bridge annotated Swift classes and methods for React Native integration.
 
@@ -45,6 +41,3 @@ module: |
    5. Output the generated Objective-C .m file.
 
    Provide the answer as a plain text (code only without any additional text). Filename should be provided in the comment on the first line. Here's the code:
-
-moduleFilename: |
-  How would you name the created file? Give an answer as a single string without any additional text or characters, in a following format: `Filename.m`
