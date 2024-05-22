@@ -37,7 +37,8 @@ type CodeGenerationRequest struct {
 	Algorithm2Desc string `json:"algorithm2Desc"`
 }
 
-var defaultBridgingHeaderContent = `// Use this file to import your target's public headers that you would like to expose to Swift.`
+var defaultBridgingHeaderContent = `// Use this file to import your target's public headers that you would like to expose to Swift.
+#import "React/RCTBridgeModule.h"`
 
 var (
 	codellama *llmutils.LLMHandler
@@ -108,8 +109,6 @@ func recoverAndRestart(iteration int, i *int, done chan struct{}) {
 }
 
 func runIteration(outputDir string) error {
-	log.Println("⚡️ Iteration started")
-
 	prompts, err := getPrompts()
 	if err != nil {
 		return err
@@ -120,26 +119,30 @@ func runIteration(outputDir string) error {
 		return err
 	}
 
-	classFilename, _, err := codegemma.Prompt(prompts.ClassFilename + "\n" + prompts.Class)
+	files := llmutils.SplitIntoFiles(class)
 
-	err = writeToFile(classFilename, outputDir, class)
-	if err != nil {
-		return err
-	}
-
-	module, moduleFilename, err := codegemma.Prompt(prompts.Module + "\n" + "// " + classFilename + "\n\n" + class)
-	if err != nil {
-		return err
-	}
-
-	if len(moduleFilename) < 3 {
-		moduleFilename, _, err = codegemma.Prompt(prompts.ModuleFilename)
+	for _, file := range files {
+		if file.Name == "" {
+			return fmt.Errorf("file name is empty")
+		}
+		classWithMarks := llmutils.AddObjcAnnotations(file.Source)
+		err = writeToFile(file.Name, outputDir, classWithMarks)
 		if err != nil {
 			return err
 		}
-	}
 
-	err = writeToFile(moduleFilename, outputDir, module)
+		module, _, err := codegemma.Prompt(prompts.Module + "\n\n" + classWithMarks)
+		mfiles := llmutils.SplitIntoFiles(module)
+		for _, mfile := range mfiles {
+			if mfile.Name == "" {
+				return fmt.Errorf("module file name is empty")
+			}
+			err = writeToFile(mfile.Name, outputDir, mfile.Source)
+			if err != nil {
+				return err
+			}
+		}
+	}
 
 	return nil
 }

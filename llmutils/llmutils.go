@@ -3,7 +3,9 @@ package llmutils
 import (
 	"context"
 	"fmt"
+	"regexp"
 	"strings"
+	"unicode"
 
 	"github.com/tmc/langchaingo/llms"
 	"github.com/tmc/langchaingo/llms/ollama"
@@ -55,18 +57,23 @@ func (h *LLMHandler) Prompt(prompt string) (resultString, fileName string, err e
 		return "", "", fmt.Errorf("error generating code: %w", err)
 	}
 
-	resultString = stripAnnotation(resultString)
-	resultString = strings.Trim(resultString, "\n`*")
 	fileName = findFilename(resultString)
 	return
 }
 
 func stripAnnotation(input string) string {
-	lines := strings.Split(input, "\n")
-	if len(lines) > 0 && strings.HasPrefix(lines[0], "```") {
-		lines = lines[1:]
+	var output string
+	pattern := regexp.MustCompile("```[a-zA-Z-_]{0,10}\n(.*?)```")
+	matches := pattern.FindAllStringSubmatch(input, -1)
+	if len(matches) > 0 {
+		output = matches[0][1]
+	} else {
+		output = input
 	}
-	return strings.Join(lines, "\n")
+	output = strings.Trim(output, "\n`* ")
+	pattern = regexp.MustCompile("(?s)(.*)```.*")
+	output = pattern.ReplaceAllString(output, `$1`)
+	return output
 }
 
 func findFilename(input string) string {
@@ -75,4 +82,70 @@ func findFilename(input string) string {
 		return lines[0][3:]
 	}
 	return ""
+}
+
+type file struct {
+	Name   string
+	Source string
+}
+
+func SplitIntoFiles(input string) []file {
+	var files []file
+	lines := strings.Split(input, "\n")
+	lineNums := []int{}
+	for i, line := range lines {
+		line = strings.TrimSpace(line)
+		if strings.HasPrefix(line, "//") && len(line) > 3 && (strings.Contains(line, ".swift") || strings.Contains(line, ".m") || strings.Contains(line, ".h")) {
+			files = append(files, file{Name: line[3:], Source: ""})
+			lineNums = append(lineNums, i)
+		}
+	}
+	for i, f := range files {
+		if i == len(files)-1 {
+			f.Source = strings.Join(lines[lineNums[i]:], "\n")
+		} else {
+			f.Source = strings.Join(lines[lineNums[i]:lineNums[i+1]], "\n")
+		}
+		f.Source = stripAnnotation(f.Source)
+		files[i] = f
+	}
+
+	if len(files) == 0 {
+		files = append(files, file{Name: "", Source: input})
+	}
+
+	return files
+}
+
+func AddObjcAnnotations(input string) string {
+	lines := strings.Split(input, "\n")
+	for i, line := range lines {
+		trimmed := strings.TrimSpace(line)
+		if strings.HasPrefix(trimmed, "class") {
+			spaces := countLeadingSpaces(line)
+			re := regexp.MustCompile(`class ([a-zA-Z0-9_]+)`)
+			matches := re.FindStringSubmatch(trimmed)
+			if len(matches) == 0 {
+				continue
+			}
+			className := matches[1]
+			lines[i] = strings.Repeat(" ", spaces) + "@objc(" + className + ")\n" + line
+		}
+		if strings.HasPrefix(trimmed, "func") {
+			spaces := countLeadingSpaces(line)
+			lines[i] = strings.Repeat(" ", spaces) + "@objc\n" + strings.Repeat(" ", spaces) + "@ReactMethod\n" + line
+		}
+	}
+	return strings.Join(lines, "\n")
+}
+
+func countLeadingSpaces(str string) int {
+	count := 0
+	for _, char := range str {
+		if !unicode.IsSpace(char) {
+			break
+		}
+		count++
+	}
+	return count
 }
