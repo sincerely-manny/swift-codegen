@@ -1,21 +1,21 @@
 class: |
   You are a hi-skilled engineer writing code for a large and scalable iOS React Native application. The application is a phone cleaner with many other features.
-  As a part of this project imagine functionality and generate a code of a Swift class that:
+  As a part of this project imagine functionality and generate a code of a single Swift class that:
   - serves the purpose of an app
   - fully implements {{.Algorithm1Name}} ({{.Algorithm1Desc}}) and {{.Algorithm2Name}} ({{.Algorithm2Desc}}) with all the details
-  - is large and contain a complex logic.
+  - implements the Encodable protocol
+  - has one public method (encode)
 
-  The class should be named appropriately and the files should be named descriptively.
-  The class should be written in Swift and should be designed to be integrated into a React Native application.
-  Code must be random but meaninful.
-  The class should be substantial in size and include complex logic that demonstrates meaningful and non-trivial interactions between the two algorithms.
+  The class should be named appropriately and the file should be named the same as the class.
+
 
   Guidelines:
   Class Size: class should contain at least 50 lines of code.
   API Design: Imagine the class as part of a real API. Avoid using placeholders; instead, design the class as if it is going to be integrated into a real-world application.
-  Class Naming: Name the class appropriately based on its functionality. Do not use the word "complex" in the class name.
+  Everithing should be contained in a single file.
+  Class constructor should be public and must not accept any  parameters.
 
-  Name created files. Filenames should be provided in the comment on the first line in a following format (replace `Filename` with the actual name):
+  Filenames should be provided in the comment on the first line in a following format (replace `Filename` with the actual name):
   ```
   // Filename.swift
   ```

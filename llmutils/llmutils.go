@@ -76,10 +76,13 @@ func stripAnnotation(input string) string {
 	return output
 }
 
-func findFilename(input string) string {
+func findFilename(input string) string { // redundant, not used
 	lines := strings.Split(input, "\n")
-	if len(lines) > 0 && strings.HasPrefix(lines[0], "//") && (len(lines[0]) > 3) && strings.Contains(lines[0], ".") {
-		return lines[0][3:]
+	pattern := regexp.MustCompile("//[ ]*([a-zA-Z_-]*[.][a-z]{1,6})")
+	for _, line := range lines {
+		if pattern.MatchString(line) {
+			return pattern.FindStringSubmatch(line)[1]
+		}
 	}
 	return ""
 }
@@ -95,10 +98,15 @@ func SplitIntoFiles(input string) []file {
 	lineNums := []int{}
 	for i, line := range lines {
 		line = strings.TrimSpace(line)
-		if strings.HasPrefix(line, "//") && len(line) > 3 && (strings.Contains(line, ".swift") || strings.Contains(line, ".m") || strings.Contains(line, ".h")) {
-			files = append(files, file{Name: line[3:], Source: ""})
+		pattern := regexp.MustCompile("//[ ]*([a-zA-Z_-]*[.](swift|m|h))")
+		if pattern.MatchString(line) {
+			files = append(files, file{Name: pattern.FindStringSubmatch(line)[1], Source: ""})
 			lineNums = append(lineNums, i)
 		}
+		// if strings.HasPrefix(line, "//") && len(line) > 3 && (strings.Contains(line, ".swift") || strings.Contains(line, ".m") || strings.Contains(line, ".h")) {
+		// 	files = append(files, file{Name: line[3:], Source: ""})
+		// 	lineNums = append(lineNums, i)
+		// }
 	}
 	for i, f := range files {
 		if i == len(files)-1 {
@@ -131,7 +139,7 @@ func AddObjcAnnotations(input string) string {
 			className := matches[1]
 			lines[i] = strings.Repeat(" ", spaces) + "@objc(" + className + ")\n" + line
 		}
-		if strings.HasPrefix(trimmed, "func") {
+		if strings.HasPrefix(trimmed, "func") || strings.HasPrefix(trimmed, "public func") {
 			spaces := countLeadingSpaces(line)
 			lines[i] = strings.Repeat(" ", spaces) + "@objc\n" + strings.Repeat(" ", spaces) + "@ReactMethod\n" + line
 		}
