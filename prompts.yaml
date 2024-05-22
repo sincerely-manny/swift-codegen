@@ -36,6 +36,7 @@ module: |
       a. Create corresponding Objective-C interface declarations in the .m file.
       b. Implement each method by calling the corresponding Swift method using Swift's interoperability features.
       c. Handle any necessary data conversions between Objective-C and Swift types.
+      d. Use React/RCTBridgeModule.h for React Native integration.
    3. Ensure the generated .m file follows React Native integration conventions.
    4. Handle any errors encountered during file generation.
    5. Output the generated Objective-C .m file.
